@@ -106,7 +106,8 @@ html, body{
     border-radius: 20px;
 }
 
-       
+ 
+            
 /*__________________Überschrift der Bilder______________________*/
 .carousel-caption {
   position: absolute;      
@@ -139,9 +140,14 @@ html, body{
 }
 
 @media (min-width: 319px) and (max-width: 699px){
-  .carousel-control-prev,
-  .carousel-control-next {
-    width: 15%;}
+  .carousel-control-prev, .carousel-control-next {
+    width: 15%;
+  }
+
+  .Startseite, .japanbrand{
+      height: 50px !important;
+      width: 80px !important; 
+  }
 }
 
 @media (min-width: 700px) and (max-width: 999px){
