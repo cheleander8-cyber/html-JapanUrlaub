@@ -1,0 +1,153 @@
+.FontNavbar {
+  font-family: "Averia Gruesa Libre", system-ui;
+  font-weight: 400;
+  font-size: 3rem;
+  font-style: normal;
+}
+
+.FontBody {
+  font-family: "Averia Gruesa Libre", system-ui;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.gradient-background {
+  background: linear-gradient(300deg, #d8c7c7, #c2bbbc, #e9d9d9);
+  background-size: 100% 100%;
+  animation: gradient-animation 18s ease infinite;
+}
+
+html, body{
+  margin: 0px;
+  height: 100%
+}
+
+/*-----------------------------------Website Design------------------------------------------*/
+#Navbar{
+  opacity: 1;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+
+
+*{
+  box-sizing: border-box;
+}
+
+
+.Fotos { /*Section eigenschaften*/
+  padding-top: 150px;
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  display: block;
+}
+
+
+.carousel {
+  height: calc(100vh - 150px);
+  width: 100%;
+  position: relative;
+}
+
+.carousel-inner, 
+.carousel-item {
+  height: 100%;
+}
+/*______________________________Bilder position____________________________________*/
+.carousel-item > img{
+  max-height: calc(100vh - 150px);
+  width: 100%;
+  height: 100%;
+  object-fit: contain 
+}
+
+/*______________________________Weiter und zurück Button______________________________________________*/
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute; 
+    top: 0;
+    height: 100% !important;
+    width: 50%;
+    opacity: 0.5;
+    z-index: 5;
+    align-items: center; 
+}
+
+.carousel-control-prev {
+    justify-content: flex-start;
+    padding-left: 20px;
+}
+
+.carousel-control-next {
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 3rem;
+    height: 3rem;
+    background-color: rgba(0, 0, 0, 0.3); 
+    border-radius: 50%;
+    background-size: 60%;
+}
+
+/*_______________________Leiste unten______________________________________*/
+
+.carousel-indicators {
+    margin-bottom: 20px;
+    padding: 10px;
+    background: rgba(0,0,0,0.5); 
+    border-radius: 20px;
+}
+
+       
+/*__________________Überschrift der Bilder______________________*/
+.carousel-caption {
+  position: absolute;      
+  top: 0;                
+  left: 0;
+  right: 0;
+  bottom: auto;           
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  align-items: center;         
+  
+  padding-top: 20px;           
+  z-index: 10;                 
+  pointer-events: none; 
+}
+
+  .carousel-caption h5 {
+  font-size: 2.5rem;
+  background: rgba(0, 0, 0, 0.4); 
+  padding: 5px 20px;
+  border-radius: 10px;
+}
+
+.carousel-caption p {          
+  background: rgba(0, 0, 0, 0.4); 
+  padding: 5px 20px;
+  border-radius: 10px;
+}
+
+@media (min-width: 319px) and (max-width: 699px){
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 15%;}
+}
+
+@media (min-width: 700px) and (max-width: 999px){
+      
+    }
+
+@media (min-width: 1000px){
+      
+}
