@@ -88,9 +88,14 @@ body{
   justify-content: center;
   background-color: transparent;
   text-align: center;
+  margin-top: 20px !important;
 }
 
-/*Snap*/
+.mobileContent {
+  display: none;
+}
+
+
 .underline{
   text-decoration: underline;
   text-decoration-color: darkred;
@@ -165,11 +170,12 @@ ____Seite 3 - Geheim____
 
 .roadMap{
   width: 100%;
-  height: 500px;
+  height: auto;
   border-radius: 30px;
 }
 
 .Freitext{
+  height: auto;
   margin-top: auto;
   margin-bottom: 20px;
   border-radius: 30px;
@@ -272,9 +278,15 @@ ____Seite 3 - Geheim____
 
 
 
+@media (max-height: 700px){
 
+  .OrdnerTokio, .Anchor, .AbstandOrdner{
+    width: 20px;
+    height: 20px;
+  }
+}
 
-
+/*===========================Responsive Breite=================================*/
 @media (max-width: 699px){
       .AbstandOrdner, .Anchor{
         display: block;
@@ -312,17 +324,16 @@ ____Seite 3 - Geheim____
 
       /* Mobil: Button am unteren Viewport-Rand fixieren */
       .mobileContent {
-        position: fixed !important;
+        position: absolute !important;
         left: 50% !important;
         transform: translateX(-50%) !important;
         bottom: 18px !important;
-        z-index: 2000 !important;
         width: calc(100% - 40px) !important;
         max-width: 420px !important;
-        display: flex !important;
         justify-content: center !important;
         pointer-events: auto !important;
         background: transparent !important;
+        display: flex !important;
       }
 
 
@@ -330,7 +341,7 @@ ____Seite 3 - Geheim____
         flex-wrap: wrap;
         gap: 20px;
         margin-top: 20px;
-        padding: 100px 0px 50px 0px;        
+        padding: 50px 0px 50px 0px;        
       }
 
       .Startseite, .japanbrand{
@@ -358,12 +369,11 @@ ____Seite 3 - Geheim____
         width: 200px;
         height: 200px;
       }
-      .mobileContent{
-        display: none;
-      }
+      /* mobileContent remains hidden on medium screens */
       .HeadText{
         font-size: 2rem;
       }
+      
     }
 
 
@@ -373,15 +383,8 @@ ____Seite 3 - Geheim____
         height: 250px;
       }
 
-      .mobileContent{
-        display: none;
-      }
+      /* mobileContent remains hidden on larger screens */
     
-      .mobileContent {
-        display: block !important;
-        position: relative !important;
-        z-index: 9999 !important;
-      }
 
     }
 
@@ -393,6 +396,33 @@ ____Seite 3 - Geheim____
 
       .mobileContent{
         display: none;
+      }
+    }
+
+    /* Speziell: bei geringer Viewport-Höhe Bilder proportional verkleinern */
+    @media (max-height: 700px){
+      /* Verhindere, dass Boxen auf 100% Breite wachsen und dadurch stapeln */
+      .collage { flex-wrap: wrap; }
+      .collage > .Box { flex: 0 0 auto; }
+
+      /* Reduziere Bild-Container und Bilder selbst */
+      .AbstandOrdner, .OrdnerTokio, .Anchor {
+        width: 20px !important;
+        height: 20px !important;
+        max-width: 20px !important;
+        max-height: 20px !important;
+        padding: 0 !important;
+        margin: 4px !important;
+        box-sizing: border-box !important;
+        display: inline-block !important;
+      }
+
+      /* Falls Bilder direkte <img> sind, erzwinge Objektanpassung */
+      .AbstandOrdner img, .OrdnerTokio img, .Anchor img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
       }
     }
 
