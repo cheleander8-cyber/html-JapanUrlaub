@@ -70,9 +70,6 @@ body{
   height: 100px;
 }
 
-*{
-  box-sizing: border-box;
-}
 .scroll-container {
   padding-top: 150px;
   height: 100vh;
@@ -103,28 +100,6 @@ body{
   text-decoration-thickness: 3px;
 }
 
-/*____Seite 1 - Tokio____*/
-
-/*
-______________alter Hintergrund_________________
-
-.one{
-  background-color: #FFCDC9;
-}
-
-____Seite 2 - Fuji____
-
-.two{
-  background-color: #FDACAC;
-}
-
-____Seite 3 - Geheim____
-
-.three{
-  background-color: #A3D78A;
-}
- */
-
 .page {
   position: relative;
   height: calc(100vh - 150px);  /*Berechnet den inhalt minus NavbarHöhe*/
@@ -143,6 +118,24 @@ ____Seite 3 - Geheim____
   
 }
 
+.OrdnerTokio, .Anchor, .AbstandOrdner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    width: auto;
+    height: auto;
+    max-width: 300px;
+    max-height: 300px;
+    font-size: 1.3rem;
+    position: relative;
+  }
+
+  .Anchor{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
 
 .Headder{
   position: relative;
@@ -205,10 +198,7 @@ ____Seite 3 - Geheim____
   padding: 10px;
   border-radius: 30px;
 }
-/*----------------Tokio-------------------*/
-.OrdnerTokio {
-  position: relative;
-}
+
 /*-----------------Fuji-------------------*/
 .HeadCollage{
   width: 100%;
@@ -231,12 +221,7 @@ ____Seite 3 - Geheim____
   background: rgba(0, 0, 0, 0.3); 
 }
 
-/*Bilder Textausrichtung*/
-.Anchor{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 
 /*-----------------Übergang-----------------*/
 
@@ -281,26 +266,55 @@ ____Seite 3 - Geheim____
 @media (max-height: 700px){
 
   .OrdnerTokio, .Anchor, .AbstandOrdner{
-    width: 20px;
-    height: 20px;
+    max-width: 100px;
+    max-height: 100px;
+    font-size: 1.3rem;
   }
+
+  .Freitext{
+    display: none;
+  }
+
+  .mobileContent{
+    display: flex;
+  }
+
 }
 
+@media (min-height: 701px) and (max-height: 900px){
+
+  .OrdnerTokio, .Anchor, .AbstandOrdner{
+    max-width: 150px;
+    max-height: 150px;
+    font-size: 1.8rem;
+  }
+
+  .Freitext{
+    display: none;
+  }
+
+  .mobileContent{
+    display: flex;
+  }
+
+  
+}
 /*===========================Responsive Breite=================================*/
 @media (max-width: 699px){
       .AbstandOrdner, .Anchor{
-        display: block;
         width: 100px;
         height: 100px;
         font-size: 1.5rem;
       }
+
+      
       
       .page {
         height: auto;
         min-height: calc(100vh - 80px);
         scroll-margin-top: 80px;
-        margin-left: 20px;
-        margin-right: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
         margin-bottom: 10px;       /*Abstand zum Webseiten Rand*/
         justify-content: flex-start;
 
@@ -314,8 +328,10 @@ ____Seite 3 - Geheim____
 
       .HeadCollage{
         height: auto !important;
-        max-height: 110px !important;
+        max-height: 250px !important;
+        width: 100% !important;
         border-radius: 30px !important;
+        object-fit: cover !important;
       }
 
       .desktopContent{
@@ -344,9 +360,12 @@ ____Seite 3 - Geheim____
         padding: 50px 0px 50px 0px;        
       }
 
-      .Startseite, .japanbrand{
+      .japanbrand{
         height: 50px;
         width: 80px; 
+      }
+      .Startseite{
+        display: none;
       }
 
       .Text {
@@ -364,20 +383,28 @@ ____Seite 3 - Geheim____
 
 
 
-@media (min-width: 700px) and (max-width: 999px){
+@media (min-width: 700px) and (max-width: 1049px){
       .AbstandOrdner, .Anchor{
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
       }
       /* mobileContent remains hidden on medium screens */
       .HeadText{
         font-size: 2rem;
       }
+
+      .Freitext > img {
+        width: 100%;
+        height: auto;
+        max-height: 500px;
+      }
+
+
       
     }
 
 
-@media (min-width: 1000px) and (max-width: 1200px){
+@media (min-width: 1050px) and (max-width: 1200px){
       .AbstandOrdner, .Anchor{
         width: 250px;
         height: 250px;
@@ -388,51 +415,4 @@ ____Seite 3 - Geheim____
 
     }
 
-      @media (min-width: 1201px){
-      .AbstandOrdner, .Anchor{
-        width: 300px;
-        height: 300px;
-      }
-
-      .mobileContent{
-        display: none;
-      }
-    }
-
-    /* Speziell: bei geringer Viewport-Höhe Bilder proportional verkleinern */
-    @media (max-height: 700px){
-      /* Verhindere, dass Boxen auf 100% Breite wachsen und dadurch stapeln */
-      .collage { flex-wrap: wrap; }
-      .collage > .Box { flex: 0 0 auto; }
-
-      /* Reduziere Bild-Container und Bilder selbst */
-      .AbstandOrdner, .OrdnerTokio, .Anchor {
-        width: 20px !important;
-        height: 20px !important;
-        max-width: 20px !important;
-        max-height: 20px !important;
-        padding: 0 !important;
-        margin: 4px !important;
-        box-sizing: border-box !important;
-        display: inline-block !important;
-      }
-
-      /* Falls Bilder direkte <img> sind, erzwinge Objektanpassung */
-      .AbstandOrdner img, .OrdnerTokio img, .Anchor img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
-        display: block !important;
-      }
-    }
-
-    
-
-    
-
-  
-
-
-
-
-
+ 
