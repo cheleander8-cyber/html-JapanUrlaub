@@ -360,12 +360,9 @@ body{
         padding: 50px 0px 50px 0px;        
       }
 
-      .japanbrand{
+      .japanbrand, .Startseite{
         height: 50px;
         width: 80px; 
-      }
-      .Startseite{
-        display: none;
       }
 
       .Text {
